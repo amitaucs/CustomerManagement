@@ -3,6 +3,10 @@ package com.codetechies.customermanagement.controller;
 import com.codetechies.customermanagement.dto.CustomerAccountResponse;
 import com.codetechies.customermanagement.dto.CustomerDetails;
 import com.codetechies.customermanagement.service.CustomerService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,11 +16,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @AllArgsConstructor
+@Tag(name = "Customer-Management")
 public class CustomerController {
 
     private CustomerService customerService;
-
-    @PostMapping("/createNewCustomerAccount")
+    @Operation(summary = "Register new customer")
+    @ApiResponses(value = {@ApiResponse(responseCode = "500", description = "Internal server error"),
+            @ApiResponse(responseCode = "200", description = "Ok")})
+    @PostMapping("/registerNewCustomer")
     ResponseEntity<CustomerAccountResponse> createNewAccount(@RequestBody CustomerDetails customerDetails) {
 
         var accountResponse = customerService.saveCustomer(customerDetails);
