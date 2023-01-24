@@ -20,9 +20,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class CustomerController {
 
     private CustomerService customerService;
-    @Operation(summary = "Register new customer")
+    @Operation(summary = "This endpoint will register a new customer and creates a new " +
+            "customer records in database")
     @ApiResponses(value = {@ApiResponse(responseCode = "500", description = "Internal server error"),
-            @ApiResponse(responseCode = "200", description = "Ok")})
+            @ApiResponse(responseCode = "200", description = "Ok"),
+            @ApiResponse(responseCode = "401", description = "Unauthorized access")})
     @PostMapping("/registerNewCustomer")
     ResponseEntity<CustomerAccountResponse> createNewAccount(@RequestBody CustomerDetails customerDetails) {
 
