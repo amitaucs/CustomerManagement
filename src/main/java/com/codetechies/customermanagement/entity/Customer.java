@@ -19,5 +19,8 @@ public class Customer {
     private  String lastName;
     @Column(name = "PHONE", nullable = false)
     private  String phone;
+    @Column(name = "ADDRESS", nullable = true)
+    private  String address;
+
 
 }
