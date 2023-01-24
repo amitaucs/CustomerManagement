@@ -23,7 +23,7 @@ public interface CustomerApi {
     ResponseEntity<CustomerAccountResponse> createNewAccount(@RequestBody CustomerDetails customerDetails);
 
 
-    @Operation(summary = "This endpoint will return all the registered customers for the application")
+    @Operation(summary = "This endpoint will return all the registered customer details for the application")
     @ApiResponses(value = {@ApiResponse(responseCode = "500", description = "Internal server error"),
             @ApiResponse(responseCode = "200", description = "Ok"),
             @ApiResponse(responseCode = "401", description = "Unauthorized access")})
