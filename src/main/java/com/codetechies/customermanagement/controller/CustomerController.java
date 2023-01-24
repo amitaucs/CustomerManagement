@@ -9,9 +9,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @AllArgsConstructor
-@Tag(name = "Customer-Management")
 public class CustomerController implements CustomerApi{
 
     private CustomerService customerService;
@@ -20,5 +21,10 @@ public class CustomerController implements CustomerApi{
     public ResponseEntity<CustomerAccountResponse> createNewAccount(CustomerDetails customerDetails) {
         var accountResponse = customerService.saveCustomer(customerDetails);
         return ResponseEntity.status(HttpStatus.OK).body(accountResponse);
+    }
+
+    @Override
+    public ResponseEntity<List<CustomerAccountResponse>> findAll() {
+        return null;
     }
 }
