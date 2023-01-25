@@ -3,7 +3,6 @@ package com.codetechies.customermanagement.controller;
 import com.codetechies.customermanagement.dto.CustomerAccountResponse;
 import com.codetechies.customermanagement.dto.CustomerDetails;
 import com.codetechies.customermanagement.service.CustomerService;
-import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
