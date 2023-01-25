@@ -33,12 +33,14 @@ public class CustomerServiceTest {
     @Test
     public void testSaveCustomer(){
         var customer = new Customer();
-        customer.setId(12L);
+        customer.setId(14L);
         Mockito.when(customerRepo.save(any(Customer.class))).thenReturn(customer);
+
         var expectedValue = customerService
                 .saveCustomer(CustomerDetails.builder().firstName("Amit").build());
+
         verify(customerRepo, times(1)).save(any(Customer.class));
-        assertEquals(Long.valueOf(expectedValue.getCustomerId()),12L);
+        assertEquals(Long.valueOf(expectedValue.getCustomerId()),14L);
 
     }
 
